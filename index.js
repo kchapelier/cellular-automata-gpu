@@ -70,6 +70,7 @@ CellularAutomataGpu.prototype.backend = null;
 
 CellularAutomataGpu.prototype.outOfBoundValue = 0;
 CellularAutomataGpu.prototype.outOfBoundWrapping = false;
+CellularAutomataGpu.prototype.outOfBoundClamping = false;
 
 /**
  * Fill the grid with a given distribution
@@ -113,10 +114,16 @@ CellularAutomataGpu.prototype.fillWithDistribution = function (distribution, rng
  * @returns {CellularAutomataGpu} CellularAutomataGpu instance for method chaining.
  */
 CellularAutomataGpu.prototype.setOutOfBoundValue = function (outOfBoundValue) {
-    if (outOfBoundValue === 'wrap') {
+    if (outOfBoundValue === 'clamp') {
+        this.outOfBoundClamping = true;
+        this.outOfBoundWrapping = false;
+        this.outOfBoundValue = 0;
+    } else if (outOfBoundValue === 'wrap') {
+        this.outOfBoundClamping = false;
         this.outOfBoundWrapping = true;
         this.outOfBoundValue = 0;
     } else {
+        this.outOfBoundClamping = false;
         this.outOfBoundWrapping = false;
         this.outOfBoundValue = outOfBoundValue | 0;
     }
@@ -168,11 +175,13 @@ CellularAutomataGpu.prototype.iterate = function (iterationNumber) {
     iterationNumber = iterationNumber || 1;
 
     if (this.currentRule.iteration === 0) {
-        var neighbourhood = getNeighbourhood(this.currentRule.rule.neighbourhoodType, this.currentRule.rule.neighbourhoodRange, this.dimension);
+        var neighbourhood = getNeighbourhood(this.currentRule.rule.neighbourhoodType, this.currentRule.rule.neighbourhoodRange, this.dimension),
+            outOfBoundValue = this.outOfBoundClamping ? 'clamp' : (this.outOfBoundWrapping ? 'wrap' : this.outOfBoundValue);
+
         if (this.dimension === 2) {
-            this.currentRule.shaders = generateShaders2D(this.currentRule.rule, neighbourhood, this.shape, this.backend.viewportWidth, this.backend.viewportHeight, this.outOfBoundWrapping ? 'wrap' : this.outOfBoundValue);
+            this.currentRule.shaders = generateShaders2D(this.currentRule.rule, neighbourhood, this.shape, this.backend.viewportWidth, this.backend.viewportHeight, outOfBoundValue);
         } else if (this.dimension === 3) {
-            this.currentRule.shaders = generateShaders3D(this.currentRule.rule, neighbourhood, this.shape, this.backend.viewportWidth, this.backend.viewportHeight, this.outOfBoundWrapping ? 'wrap' : this.outOfBoundValue);
+            this.currentRule.shaders = generateShaders3D(this.currentRule.rule, neighbourhood, this.shape, this.backend.viewportWidth, this.backend.viewportHeight, outOfBoundValue);
         }
         this.rules.push(this.currentRule);
     }
