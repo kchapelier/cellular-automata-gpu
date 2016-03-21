@@ -30,6 +30,7 @@
     "moore": "0.0.2",
     "ndarray": "^1.0.18",
     "unconventional-neighbours": "^1.0.0",
+    "uniq": "^1.0.1",
     "von-neumann": "^1.0.0"
   },
   "devDependencies": {
