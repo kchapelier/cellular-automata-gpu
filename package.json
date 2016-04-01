@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/kchapelier/cellular-automata-gpu",
   "dependencies": {
-    "cellular-automata-rule-parser": "^2.0.0",
+    "cellular-automata-rule-parser": "^2.1.0",
     "gl": "^2.1.5",
     "moore": "0.0.2",
     "ndarray": "^1.0.18",
