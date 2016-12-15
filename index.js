@@ -133,7 +133,7 @@ CellularAutomataGpu.prototype.setOutOfBoundValue = function (outOfBoundValue) {
             rule: this.currentRule.rule,
             shaders: null,
             iteration: 0
-        }
+        };
     }
 
     return this;
@@ -221,6 +221,11 @@ CellularAutomataGpu.prototype.finalize = function () {
     }
 
     return this;
+};
+
+CellularAutomataGpu.prototype.destroy = function () {
+    this.backend.destroy();
+    this.backend = null;
 };
 
 module.exports = CellularAutomataGpu;
