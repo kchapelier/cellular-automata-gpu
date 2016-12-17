@@ -15,7 +15,7 @@
     "gpgpu",
     "automata",
     "cellular",
-    "parser"
+    "glsl"
   ],
   "author": "Kevin Chapelier",
   "license": "MIT",
@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/kchapelier/cellular-automata-gpu",
   "dependencies": {
-    "cellular-automata-rule-parser": "^2.1.0",
-    "gl": "^2.1.5",
+    "cellular-automata-rule-parser": "^2.1.1",
+    "gl": "^4.0.2",
     "moore": "0.0.2",
     "ndarray": "^1.0.18",
     "unconventional-neighbours": "^1.0.0",
@@ -34,7 +34,7 @@
     "von-neumann": "^1.0.0"
   },
   "devDependencies": {
-    "chai": "^3.3.0",
-    "mocha": "^2.3.3"
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   }
 }
