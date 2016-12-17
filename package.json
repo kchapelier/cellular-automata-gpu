@@ -1,6 +1,6 @@
 {
   "name": "cellular-automata-gpu",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "GPU-based cellular automata runner",
   "main": "index.js",
   "scripts": {
