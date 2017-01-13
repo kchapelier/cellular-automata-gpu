@@ -30,7 +30,7 @@ It is currently recommended to use the CPU-based module [cellular-automata](http
 0.0.2 (2017-01-13) :
 
 - Fix incorrect shader generation for stochastic rule in 3D
-- Fix issue with empty birth of survival value in stochastic rules
+- Fix issue with empty birth or survival value in stochastic rules
 
 0.0.1 (2016-12-17) :
 
