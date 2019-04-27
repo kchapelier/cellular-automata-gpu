@@ -10,7 +10,7 @@ npm install cellular-automata-gpu
 
 ## Features
 
-- Doesn't have any dependency to the DOM (use [gl](https://www.npmjs.com/package/gl) when used in node)
+- Doesn't have any dependency to the DOM (use OffscreenCanvas in worker if available).
 - Can easily apply different successive rules.
 - Can be used in 2D and 3D.
 - Allow the cellular automata rules to be passed as a string in one of several common CA rule format, see [cellular-automata-rule-parser](https://www.npmjs.com/package/cellular-automata-rule-parser).
