@@ -1,11 +1,9 @@
 {
   "name": "cellular-automata-gpu",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "GPU-based cellular automata runner",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha test/"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/kchapelier/cellular-automata-gpu.git"
@@ -17,6 +15,10 @@
     "cellular",
     "glsl"
   ],
+  "files": [
+    "index.js",
+    "lib/"
+  ],
   "author": "Kevin Chapelier",
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -25,16 +27,11 @@
   },
   "homepage": "https://github.com/kchapelier/cellular-automata-gpu",
   "dependencies": {
-    "cellular-automata-rule-parser": "^2.1.1",
-    "gl": "^4.0.2",
-    "moore": "0.0.2",
+    "cellular-automata-rule-parser": "^3.0.0",
+    "moore": "1.0.0",
     "ndarray": "^1.0.18",
     "unconventional-neighbours": "^1.0.0",
-    "uniq": "^1.0.1",
-    "von-neumann": "^1.0.0"
+    "von-neumann": "^1.0.1"
   },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0"
-  }
+  "devDependencies": {}
 }
